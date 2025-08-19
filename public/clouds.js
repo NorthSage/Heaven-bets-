@@ -8,7 +8,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const cloud = template.cloneNode(true);
     cloud.removeAttribute('id');
     const duration = Math.random() * 200 + 100;
+    const delay = -Math.random() * duration;
     cloud.style.animation = `animateCloud ${duration}s linear infinite`;
+    cloud.style.animationDelay = `${delay}s`;
     cloud.style.position = 'absolute';
     cloud.style.top = '0';
     sky.appendChild(cloud);

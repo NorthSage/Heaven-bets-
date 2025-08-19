@@ -114,10 +114,10 @@ body::-webkit-scrollbar-thumb {
 
 @keyframes animateCloud {
   0% {
-    transform: translateX(-10%);
+    transform: translateX(-100vw);
   }
   100% {
-    transform: translateX(200%);
+    transform: translateX(200vw);
   }
 }
 
