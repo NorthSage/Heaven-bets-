@@ -18,9 +18,10 @@ const WelcomeWrapper = styled.div`
   }
 
   /* Styling */
-  background: linear-gradient(-45deg, #ffb07c, #ff3e88, #2969ff, #ef3cff, #ff3c87);
-  background-size: 300% 300%;
-  animation: welcome-fade-in 0.5s ease, backgroundGradient 30s ease infinite;
+  background: linear-gradient(-45deg, #87cefa, #e0f7ff, #b0e0ff, #87cefa);
+  background-image: url('/clouds.svg');
+  background-size: cover;
+  animation: welcome-fade-in 0.5s ease, backgroundGradient 60s ease infinite;
   border-radius: 12px; /* Slightly larger radius for a modern look */
   padding: 24px; /* Consistent padding */
   display: flex;
@@ -44,13 +45,20 @@ const WelcomeContent = styled.div`
   h1 {
     font-size: 1.75rem; /* Responsive font size */
     margin: 0 0 8px 0;
-    color: #ffffff;
+    color: #1a237e;
   }
 
   p {
     font-size: 1rem;
-    color: #ffffffd1;
+    color: #1a237ed1;
     margin: 0;
+  }
+
+  .proverb {
+    margin-top: 12px;
+    font-style: italic;
+    color: #ffd700;
+    text-shadow: 0 0 10px #fff;
   }
 
   @media (min-width: 800px) {
@@ -118,8 +126,12 @@ export function WelcomeBanner() {
   return (
     <WelcomeWrapper>
       <WelcomeContent>
-        <h1>Welcome to Gamba v2 👋</h1>
-        <p>A fair, simple and decentralized casino on Solana.</p>
+        <img src="/logo.svg" alt="Lots logo" style={{ height: '80px', marginBottom: '8px' }} />
+        <h1>Welcome to Lots 👼</h1>
+        <p>The heavenly home of decentralized play on Solana.</p>
+        <p className="proverb">
+          Proverbs 16:33: "The lot is cast into the lap, but its every decision is from the Lord".
+        </p>
       </WelcomeContent>
       <ButtonGroup>
         <ActionButton onClick={handleCopyInvite}>

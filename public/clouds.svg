@@ -1,0 +1,10 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#fff" opacity="0.8">
+    <circle cx="160" cy="200" r="100"/>
+    <circle cx="260" cy="200" r="120"/>
+    <circle cx="380" cy="200" r="100"/>
+    <circle cx="580" cy="120" r="80"/>
+    <circle cx="650" cy="120" r="60"/>
+    <circle cx="720" cy="120" r="80"/>
+  </g>
+</svg>
