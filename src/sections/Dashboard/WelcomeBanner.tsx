@@ -1,8 +1,5 @@
-import { useWallet } from '@solana/wallet-adapter-react';
-import { useWalletModal } from '@solana/wallet-adapter-react-ui';
 import React from 'react';
 import styled from 'styled-components';
-import { useUserStore } from '../../hooks/useUserStore';
 import rocketGif from '../../games/CrashGame/rocket.gif';
 
 const WelcomeWrapper = styled.div`
@@ -54,7 +51,7 @@ const WelcomeContent = styled.div`
   }
 
   h1 img {
-    height: 1.5em;
+    height: 3em;
   }
 
   p {
@@ -80,58 +77,8 @@ const WelcomeContent = styled.div`
   }
 `;
 
-const ButtonGroup = styled.div`
-  display: flex;
-  flex-wrap: wrap; /* Allows buttons to wrap onto the next line */
-  gap: 12px; /* Space between buttons */
-  justify-content: center; /* Center buttons on mobile */
-
-  @media (min-width: 800px) {
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-`;
-
-const ActionButton = styled.button`
-  /* Base styles */
-  border: none;
-  border-radius: 10px;
-  padding: 12px 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  background: #ffffffdf;
-  color: black;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  flex-grow: 1; /* Allows buttons to share space on mobile */
-  text-align: center;
-
-  &:hover {
-    background: white;
-    transform: translateY(-2px); /* Subtle hover effect */
-  }
-
-  /* On desktop, buttons take full width of their container */
-  @media (min-width: 800px) {
-    width: 100%;
-    flex-grow: 0; /* Reset flex-grow */
-  }
-`;
 
 export function WelcomeBanner() {
-  const wallet = useWallet();
-  const walletModal = useWalletModal();
-  const { set: setUserModal } = useUserStore(); // Destructure for cleaner access
-
-  const handleCopyInvite = () => {
-    setUserModal({ userModal: true });
-    if (!wallet.connected) {
-      walletModal.setVisible(true);
-    }
-  };
-
-  const openLink = (url) => () => window.open(url, '_blank', 'noopener,noreferrer');
-
   return (
     <WelcomeWrapper>
       <WelcomeContent>
@@ -145,17 +92,6 @@ export function WelcomeBanner() {
           Proverbs 16:33: "The lot is cast into the lap, but its every decision is from the Lord".
         </p>
       </WelcomeContent>
-      <ButtonGroup>
-        <ActionButton onClick={handleCopyInvite}>
-          💸 Copy Invite
-        </ActionButton>
-        <ActionButton onClick={openLink('https://v2.gamba.so/')}>
-          🚀 Add Liquidity
-        </ActionButton>
-        <ActionButton onClick={openLink('https://discord.gg/HSTtFFwR')}>
-          💬 Discord
-        </ActionButton>
-      </ButtonGroup>
     </WelcomeWrapper>
   );
 }
