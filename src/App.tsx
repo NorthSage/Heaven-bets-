@@ -90,6 +90,7 @@ export default function App() {
       </MainWrapper>
 
       {ENABLE_TROLLBOX && <TrollBox />}
+      <div className="angel" />
     </>
   )
 }
