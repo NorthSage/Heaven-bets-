@@ -1,12 +1,12 @@
 {
-	"name": "Gamba Play",
-	"short_name": "Gamba",
+        "name": "Lots",
+        "short_name": "Lots",
 	"start_url": "/",
 	"display": "standalone",
-	"background_color": "#000000",
-	"lang": "en",
-	"scope": "/",
-	"theme_color": "#FF5555",
+        "background_color": "#66B2FF",
+        "lang": "en",
+        "scope": "/",
+        "theme_color": "#FFD700",
 	"description": "",
 	"icons": [
 		{

@@ -3,23 +3,23 @@
 }
 
 :root {
-  --background-color: #0b0b0e;
-  --text-color: #ffffff;
-  --gamba-ui-primary-color: #9564ff;
+  --background-color: #66b2ff;
+  --text-color: #2c3e50;
+  --gamba-ui-primary-color: #ffd700;
 
   --gamba-ui-border-radius: 10px;
 
-  --gamba-ui-button-default-background: #0e0e16;
-  --gamba-ui-button-default-background-hover: #11111d;
-  --gamba-ui-button-default-color: white;
+  --gamba-ui-button-default-background: #ffffffcc;
+  --gamba-ui-button-default-background-hover: #ffffff;
+  --gamba-ui-button-default-color: #2c3e50;
 
-  --gamba-ui-button-main-background: #8851ff;
-  --gamba-ui-button-main-color: white;
-  --gamba-ui-button-main-background-hover: #9564ff;
+  --gamba-ui-button-main-background: #ffd700;
+  --gamba-ui-button-main-color: #2c3e50;
+  --gamba-ui-button-main-background-hover: #ffe866;
 
-  --gamba-ui-input-background: #0e0e16;
-  --gamba-ui-input-color: #ffffff;
-  --gamba-ui-input-background-hover: #11111d;
+  --gamba-ui-input-background: #ffffffcc;
+  --gamba-ui-input-color: #2c3e50;
+  --gamba-ui-input-background-hover: #ffffff;
 }
 
 body, input, button, textarea, pre {
@@ -31,14 +31,23 @@ h1, h2 {
   margin: 0;
 }
 
+@keyframes floatClouds {
+  from { background-position: 0 0, 0 0, 0 0; }
+  to { background-position: 0 0, 10000px 0, 5000px 0; }
+}
+
 body {
-  background: var(--background-color);
   color: var(--text-color);
   cursor: default;
   margin: 0;
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
+  background-image: linear-gradient(#66b2ff, #e0f7ff), url('/cloud.svg'), url('/cloud.svg');
+  background-repeat: no-repeat, repeat-x, repeat-x;
+  background-size: 100% 100%, 600px auto, 800px auto;
+  background-position: 0 0, 0 0, 0 0;
+  animation: floatClouds 120s linear infinite;
 }
 
 a {
@@ -61,3 +70,4 @@ body::-webkit-scrollbar-thumb {
   background: rgb(55, 57, 82);
   border-radius: 10px;
 }
+
