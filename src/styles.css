@@ -3,7 +3,7 @@
 }
 
 :root {
-  --background-color: linear-gradient(to bottom, #87cefa, #e0f7ff);
+  --background-color: linear-gradient(to bottom, #4A90E2, #87CEEB);
   --text-color: #1a237e;
   --gamba-ui-primary-color: #ffd700;
 
@@ -34,9 +34,10 @@ h1, h2 {
 body {
   background: var(--background-color);
   background-image: url('/clouds.svg'), url('/clouds.svg');
-  background-repeat: no-repeat, no-repeat;
-  background-size: 150% auto, 200% auto;
-  background-position: top left, bottom right;
+  background-repeat: repeat-x, repeat-x;
+  background-size: 1200px 600px, 1800px 900px;
+  background-position: 0 20%, 0 80%;
+  animation: move-clouds 60s linear infinite;
   color: var(--text-color);
   cursor: default;
   margin: 0;
@@ -84,4 +85,13 @@ body::-webkit-scrollbar-thumb {
   font-weight: normal;
   background: rgb(55, 57, 82);
   border-radius: 10px;
+}
+
+@keyframes move-clouds {
+  0% {
+    background-position: 0 20%, 0 80%;
+  }
+  100% {
+    background-position: 1000px 20%, -1000px 80%;
+  }
 }

@@ -3,6 +3,7 @@ import { useWalletModal } from '@solana/wallet-adapter-react-ui';
 import React from 'react';
 import styled from 'styled-components';
 import { useUserStore } from '../../hooks/useUserStore';
+import rocketGif from '../../games/CrashGame/rocket.gif';
 
 const WelcomeWrapper = styled.div`
   /* Animations */
@@ -11,17 +12,17 @@ const WelcomeWrapper = styled.div`
     to { opacity: 1; }
   }
 
-  @keyframes backgroundGradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  @keyframes cloudsMove {
+    0% { background-position: 0 0, 0 20%, 0 80%; }
+    100% { background-position: 0 0, 1000px 20%, -1000px 80%; }
   }
 
   /* Styling */
-  background: linear-gradient(-45deg, #87cefa, #e0f7ff, #b0e0ff, #87cefa);
-  background-image: url('/clouds.svg');
-  background-size: cover;
-  animation: welcome-fade-in 0.5s ease, backgroundGradient 60s ease infinite;
+  background-image: linear-gradient(-45deg, #4A90E2, #87CEEB, #5BAAF6, #4A90E2), url('/clouds.svg'), url('/clouds.svg');
+  background-repeat: no-repeat, repeat-x, repeat-x;
+  background-size: cover, 1200px 600px, 1800px 900px;
+  background-position: center, 0 20%, 0 80%;
+  animation: welcome-fade-in 0.5s ease, cloudsMove 80s linear infinite;
   border-radius: 12px; /* Slightly larger radius for a modern look */
   padding: 24px; /* Consistent padding */
   display: flex;
@@ -46,6 +47,14 @@ const WelcomeContent = styled.div`
     font-size: 1.75rem; /* Responsive font size */
     margin: 0 0 8px 0;
     color: #1a237e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  h1 img {
+    height: 1.5em;
   }
 
   p {
@@ -127,7 +136,10 @@ export function WelcomeBanner() {
     <WelcomeWrapper>
       <WelcomeContent>
         <img src="/logo.svg" alt="Lots logo" style={{ height: '80px', marginBottom: '8px' }} />
-        <h1>Welcome to Lots 👼</h1>
+        <h1>
+          Welcome to Lots
+          <img src={rocketGif} alt="rocket" />
+        </h1>
         <p>The heavenly home of decentralized play on Solana.</p>
         <p className="proverb">
           Proverbs 16:33: "The lot is cast into the lap, but its every decision is from the Lord".
