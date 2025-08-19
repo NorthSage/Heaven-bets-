@@ -32,11 +32,10 @@ h1, h2 {
 }
 
 body {
-  background: var(--background-color);
-  background-image: url('/clouds.svg'), url('/clouds.svg');
-  background-repeat: repeat-x, repeat-x;
-  background-size: 1200px 600px, 1800px 900px;
-  background-position: 0 20%, 0 80%;
+  background: var(--background-color), url('/clouds.svg'), url('/clouds.svg');
+  background-repeat: no-repeat, repeat-x, repeat-x;
+  background-size: cover, 1200px 600px, 1800px 900px;
+  background-position: center center, 0 20%, 0 80%;
   animation: move-clouds 60s linear infinite;
   color: var(--text-color);
   cursor: default;
@@ -89,9 +88,9 @@ body::-webkit-scrollbar-thumb {
 
 @keyframes move-clouds {
   0% {
-    background-position: 0 20%, 0 80%;
+    background-position: center center, 0 20%, 0 80%;
   }
   100% {
-    background-position: 1000px 20%, -1000px 80%;
+    background-position: center center, 1000px 20%, -1000px 80%;
   }
 }
