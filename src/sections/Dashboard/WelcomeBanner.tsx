@@ -1,8 +1,6 @@
-import { useWallet } from '@solana/wallet-adapter-react';
-import { useWalletModal } from '@solana/wallet-adapter-react-ui';
 import React from 'react';
 import styled from 'styled-components';
-import { useUserStore } from '../../hooks/useUserStore';
+import rocketGif from '../../games/CrashGame/rocket.gif';
 
 const WelcomeWrapper = styled.div`
   /* Animations */
@@ -11,16 +9,17 @@ const WelcomeWrapper = styled.div`
     to { opacity: 1; }
   }
 
-  @keyframes backgroundGradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  @keyframes cloudsMove {
+    0% { background-position: 0 0, 0 20%, 0 80%; }
+    100% { background-position: 0 0, 1000px 20%, -1000px 80%; }
   }
 
   /* Styling */
-  background: linear-gradient(-45deg, #ffb07c, #ff3e88, #2969ff, #ef3cff, #ff3c87);
-  background-size: 300% 300%;
-  animation: welcome-fade-in 0.5s ease, backgroundGradient 30s ease infinite;
+  background-image: linear-gradient(-45deg, #4A90E2, #87CEEB, #5BAAF6, #4A90E2), url('/clouds.svg'), url('/clouds.svg');
+  background-repeat: no-repeat, repeat-x, repeat-x;
+  background-size: cover, 1200px 600px, 1800px 900px;
+  background-position: center, 0 20%, 0 80%;
+  animation: welcome-fade-in 0.5s ease, cloudsMove 80s linear infinite;
   border-radius: 12px; /* Slightly larger radius for a modern look */
   padding: 24px; /* Consistent padding */
   display: flex;
@@ -44,13 +43,28 @@ const WelcomeContent = styled.div`
   h1 {
     font-size: 1.75rem; /* Responsive font size */
     margin: 0 0 8px 0;
-    color: #ffffff;
+    color: #1a237e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  h1 img {
+    height: 3em;
   }
 
   p {
     font-size: 1rem;
-    color: #ffffffd1;
+    color: #1a237ed1;
     margin: 0;
+  }
+
+  .proverb {
+    margin-top: 12px;
+    font-style: italic;
+    color: #ffd700;
+    text-shadow: 0 0 10px #fff;
   }
 
   @media (min-width: 800px) {
@@ -63,75 +77,21 @@ const WelcomeContent = styled.div`
   }
 `;
 
-const ButtonGroup = styled.div`
-  display: flex;
-  flex-wrap: wrap; /* Allows buttons to wrap onto the next line */
-  gap: 12px; /* Space between buttons */
-  justify-content: center; /* Center buttons on mobile */
-
-  @media (min-width: 800px) {
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-`;
-
-const ActionButton = styled.button`
-  /* Base styles */
-  border: none;
-  border-radius: 10px;
-  padding: 12px 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  background: #ffffffdf;
-  color: black;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  flex-grow: 1; /* Allows buttons to share space on mobile */
-  text-align: center;
-
-  &:hover {
-    background: white;
-    transform: translateY(-2px); /* Subtle hover effect */
-  }
-
-  /* On desktop, buttons take full width of their container */
-  @media (min-width: 800px) {
-    width: 100%;
-    flex-grow: 0; /* Reset flex-grow */
-  }
-`;
 
 export function WelcomeBanner() {
-  const wallet = useWallet();
-  const walletModal = useWalletModal();
-  const { set: setUserModal } = useUserStore(); // Destructure for cleaner access
-
-  const handleCopyInvite = () => {
-    setUserModal({ userModal: true });
-    if (!wallet.connected) {
-      walletModal.setVisible(true);
-    }
-  };
-
-  const openLink = (url) => () => window.open(url, '_blank', 'noopener,noreferrer');
-
   return (
     <WelcomeWrapper>
       <WelcomeContent>
-        <h1>Welcome to Gamba v2 👋</h1>
-        <p>A fair, simple and decentralized casino on Solana.</p>
+        <img src="/logo.svg" alt="Lots logo" style={{ height: '80px', marginBottom: '8px' }} />
+        <h1>
+          Welcome to Lots
+          <img src={rocketGif} alt="rocket" />
+        </h1>
+        <p>The heavenly home of decentralized play on Solana.</p>
+        <p className="proverb">
+          Proverbs 16:33: "The lot is cast into the lap, but its every decision is from the Lord".
+        </p>
       </WelcomeContent>
-      <ButtonGroup>
-        <ActionButton onClick={handleCopyInvite}>
-          💸 Copy Invite
-        </ActionButton>
-        <ActionButton onClick={openLink('https://v2.gamba.so/')}>
-          🚀 Add Liquidity
-        </ActionButton>
-        <ActionButton onClick={openLink('https://discord.gg/HSTtFFwR')}>
-          💬 Discord
-        </ActionButton>
-      </ButtonGroup>
     </WelcomeWrapper>
   );
 }

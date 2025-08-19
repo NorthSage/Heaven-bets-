@@ -3,23 +3,23 @@
 }
 
 :root {
-  --background-color: #0b0b0e;
-  --text-color: #ffffff;
-  --gamba-ui-primary-color: #9564ff;
+  --background-color: linear-gradient(to bottom, #4A90E2, #87CEEB);
+  --text-color: #1a237e;
+  --gamba-ui-primary-color: #ffd700;
 
   --gamba-ui-border-radius: 10px;
 
-  --gamba-ui-button-default-background: #0e0e16;
-  --gamba-ui-button-default-background-hover: #11111d;
-  --gamba-ui-button-default-color: white;
+  --gamba-ui-button-default-background: rgba(255, 255, 255, 0.8);
+  --gamba-ui-button-default-background-hover: rgba(255, 255, 255, 1);
+  --gamba-ui-button-default-color: #1a237e;
 
-  --gamba-ui-button-main-background: #8851ff;
-  --gamba-ui-button-main-color: white;
-  --gamba-ui-button-main-background-hover: #9564ff;
+  --gamba-ui-button-main-background: #ffd700;
+  --gamba-ui-button-main-color: #1a237e;
+  --gamba-ui-button-main-background-hover: #ffe066;
 
-  --gamba-ui-input-background: #0e0e16;
-  --gamba-ui-input-color: #ffffff;
-  --gamba-ui-input-background-hover: #11111d;
+  --gamba-ui-input-background: rgba(255, 255, 255, 0.8);
+  --gamba-ui-input-color: #1a237e;
+  --gamba-ui-input-background-hover: rgba(255, 255, 255, 1);
 }
 
 body, input, button, textarea, pre {
@@ -32,13 +32,17 @@ h1, h2 {
 }
 
 body {
-  background: var(--background-color);
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background: transparent;
   color: var(--text-color);
   cursor: default;
-  margin: 0;
-  overflow-y: scroll;
-  overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
+  position: relative;
 }
 
 a {
@@ -60,4 +64,64 @@ body::-webkit-scrollbar-thumb {
   font-weight: normal;
   background: rgb(55, 57, 82);
   border-radius: 10px;
+}
+
+/* Heavenly sky background */
+.cloud-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 110vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.sky {
+  background-image: url('https://i.imgur.com/HRKpV6s.png');
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.cloud {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cloud-part {
+  background: #fff;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.2);
+}
+
+#cloud-back {
+  filter: url(#filter-back);
+  box-shadow: 300px 300px 30px -20px #fff;
+}
+
+#cloud-mid {
+  filter: url(#filter-mid);
+  box-shadow: 300px 340px 70px -60px rgba(158, 168, 179, 0.3);
+}
+
+#cloud-front {
+  filter: url(#filter-front);
+  box-shadow: 300px 370px 60px -100px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes animateCloud {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(200vw);
+  }
+}
+
+#root {
+  position: relative;
+  z-index: 1;
 }

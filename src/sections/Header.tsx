@@ -38,7 +38,7 @@ const StyledHeader = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 10px;
-  background: #000000cc;
+  background: #ffffffcc;
   backdrop-filter: blur(20px);
   position: fixed;
   top: 0;
@@ -118,7 +118,7 @@ export default function Header() {
       <StyledHeader>
         <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
           <Logo to="/">
-            <img alt="Gamba logo" src="/logo.svg" />
+            <img alt="Lots logo" src="/logo.svg" />
           </Logo>
         </div>
 
