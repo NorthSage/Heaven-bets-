@@ -3,7 +3,7 @@
 }
 
 :root {
-  --background-color: #87ceeb;
+  --background-color: #66b2ff;
   --text-color: #2c3e50;
   --gamba-ui-primary-color: #ffd700;
 
@@ -32,8 +32,8 @@ h1, h2 {
 }
 
 @keyframes floatClouds {
-  from { background-position: 0 0; }
-  to { background-position: 10000px 0; }
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 10000px 0, 5000px 0; }
 }
 
 @keyframes flyAngel {
@@ -42,15 +42,16 @@ h1, h2 {
 }
 
 body {
-  background: linear-gradient(#87ceeb, #f0f8ff);
+  background: linear-gradient(#66b2ff, #e0f7ff);
   color: var(--text-color);
   cursor: default;
   margin: 0;
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
-  background-image: url('/cloud.svg');
-  background-repeat: repeat-x;
+  background-image: url('/cloud.svg'), url('/cloud.svg');
+  background-repeat: repeat-x, repeat-x;
+  background-size: 600px auto, 800px auto;
   animation: floatClouds 120s linear infinite;
 }
 
