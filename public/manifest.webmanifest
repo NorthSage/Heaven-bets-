@@ -1,13 +1,13 @@
 {
-        "name": "Lots",
-        "short_name": "Lots",
+        "name": "HOLY BETS",
+        "short_name": "HOLY BETS",
 	"start_url": "/",
 	"display": "standalone",
         "background_color": "#87ceeb",
 	"lang": "en",
 	"scope": "/",
         "theme_color": "#87ceeb",
-        "description": "Heavenly lots and games",
+        "description": "Holy bets and games",
 	"icons": [
 		{
 			"src": "/icon-512.png",
