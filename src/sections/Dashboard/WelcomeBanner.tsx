@@ -60,7 +60,14 @@ export function WelcomeBanner() {
   return (
     <WelcomeWrapper>
       <WelcomeContent>
-        <img src="/logo.svg" alt="HALO BETS logo" style={{ height: '120px', marginBottom: '16px' }} />
+        <div style={{ position: 'relative', height: '120px', marginBottom: '16px' }}>
+          <img
+            src="/01_Heaven_Logo_Reveal_014_Black_600px.gif"
+            alt="halo"
+            style={{ position: 'absolute', top: '-40px', width: '100%', height: 'auto', pointerEvents: 'none' }}
+          />
+          <img src="/logo.svg" alt="777BET logo" style={{ height: '100%' }} />
+        </div>
         <img src={rocketGif} alt="rocket" className="rocket" />
         <p className="proverb">
           Proverbs 16:33: "The lot is cast into the lap, but its every decision is from the Lord".
