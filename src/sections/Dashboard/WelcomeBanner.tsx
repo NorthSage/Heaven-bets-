@@ -9,41 +9,36 @@ const WelcomeWrapper = styled.div`
     to { opacity: 1; }
   }
 
-  @keyframes cloudsMove {
-    0% { background-position: 0 0, 0 20%, 0 80%; }
-    100% { background-position: 0 0, 1000px 20%, -1000px 80%; }
-  }
-
   /* Styling */
-  background-image: linear-gradient(-45deg, #4A90E2, #87CEEB, #5BAAF6, #4A90E2), url('/clouds.svg'), url('/clouds.svg');
-  background-repeat: no-repeat, repeat-x, repeat-x;
-  background-size: cover, 1200px 600px, 1800px 900px;
-  background-position: center, 0 20%, 0 80%;
-  animation: welcome-fade-in 0.5s ease, cloudsMove 80s linear infinite;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  animation: welcome-fade-in 0.5s ease;
   border-radius: 12px; /* Slightly larger radius for a modern look */
   padding: 24px; /* Consistent padding */
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 24px; /* Consistent gap */
   text-align: center;
   filter: drop-shadow(0 4px 3px rgba(0,0,0,.07)) drop-shadow(0 2px 2px rgba(0,0,0,.06));
 
   /* Desktop styles using a min-width media query */
   @media (min-width: 800px) {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    align-items: center;
-    text-align: left;
     padding: 40px;
-    gap: 40px;
   }
 `;
 
 const WelcomeContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   h1 {
     font-size: 1.75rem; /* Responsive font size */
     margin: 0 0 8px 0;
-    color: #1a237e;
+    color: #fff;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,12 +46,13 @@ const WelcomeContent = styled.div`
   }
 
   h1 img {
-    height: 3em;
+    height: 9em;
   }
 
   p {
     font-size: 1rem;
-    color: #1a237ed1;
+    color: #fff;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
     margin: 0;
   }
 
@@ -64,7 +60,7 @@ const WelcomeContent = styled.div`
     margin-top: 12px;
     font-style: italic;
     color: #ffd700;
-    text-shadow: 0 0 10px #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
   }
 
   @media (min-width: 800px) {
@@ -82,7 +78,7 @@ export function WelcomeBanner() {
   return (
     <WelcomeWrapper>
         <WelcomeContent>
-          <img src="/logo.svg" alt="HALO BETS logo" style={{ height: '80px', marginBottom: '8px' }} />
+          <img src="/logo.svg" alt="HALO BETS logo" style={{ height: '120px', marginBottom: '16px' }} />
             <h1>
               Welcome to HALO BETS
               <img src={rocketGif} alt="rocket" />
