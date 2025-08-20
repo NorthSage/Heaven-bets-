@@ -47,10 +47,24 @@ const StyledHeader = styled.div`
 `
 
 const Logo = styled(NavLink)`
-  height: 35px;
+  position: relative;
+  height: 55px;
   margin: 0 15px;
-  & > img {
-    height: 120%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > img.text {
+    height: 100%;
+    filter: drop-shadow(0 0 4px #ffd700) drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+  }
+
+  & > img.halo {
+    position: absolute;
+    top: -70%;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
   }
 `
 
@@ -118,7 +132,8 @@ export default function Header() {
       <StyledHeader>
         <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
             <Logo to="/">
-                <img alt="HALO BETS logo" src="/logo.svg" />
+                <img className="halo" alt="halo" src="/01_Heaven_Logo_Reveal_014_Black_600px.gif" />
+                <img className="text" alt="777BET logo" src="/logo.svg" />
             </Logo>
         </div>
 
