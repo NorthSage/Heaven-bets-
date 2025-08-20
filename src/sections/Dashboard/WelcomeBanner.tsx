@@ -10,7 +10,8 @@ const WelcomeWrapper = styled.div`
   }
 
   /* Styling */
-  background: rgba(0, 0, 0, 0.4);
+  /* Use a light, cloud-like overlay to better match the sky theme */
+  background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(5px);
   animation: welcome-fade-in 0.5s ease;
   border-radius: 12px; /* Slightly larger radius for a modern look */
