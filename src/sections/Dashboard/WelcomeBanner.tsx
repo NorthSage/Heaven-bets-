@@ -69,7 +69,7 @@ export function WelcomeBanner() {
           <img
             src="/logo.svg"
             alt="777BET logo"
-            style={{ height: '100%', filter: 'drop-shadow(0 0 6px #ffd700) drop-shadow(0 0 12px rgba(255, 215, 0, 0.8))' }}
+            style={{ height: '100%', filter: 'drop-shadow(0 0 3px #ffd700) drop-shadow(0 0 6px rgba(255, 215, 0, 0.6))' }}
           />
         </div>
         <img src={rocketGif} alt="rocket" className="rocket" />
