@@ -56,6 +56,7 @@ const Logo = styled(NavLink)`
 
   & > img.text {
     height: 100%;
+    filter: drop-shadow(0 0 6px #ffd700) drop-shadow(0 0 12px rgba(255, 215, 0, 0.8));
   }
 
   & > img.halo {

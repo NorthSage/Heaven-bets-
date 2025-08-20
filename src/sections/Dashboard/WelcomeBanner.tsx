@@ -66,7 +66,11 @@ export function WelcomeBanner() {
             alt="halo"
             style={{ position: 'absolute', top: '-40px', width: '100%', height: 'auto', pointerEvents: 'none' }}
           />
-          <img src="/logo.svg" alt="777BET logo" style={{ height: '100%' }} />
+          <img
+            src="/logo.svg"
+            alt="777BET logo"
+            style={{ height: '100%', filter: 'drop-shadow(0 0 6px #ffd700) drop-shadow(0 0 12px rgba(255, 215, 0, 0.8))' }}
+          />
         </div>
         <img src={rocketGif} alt="rocket" className="rocket" />
         <p className="proverb">
