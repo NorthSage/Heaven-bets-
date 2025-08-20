@@ -65,7 +65,7 @@ export function useRecentPlays(params: Params = {}) {
 
       // Optional suspense delay for user’s own plays
       const isUserGame = data.user.equals(userRef.current)
-      const inSuspense = ['plinko', 'slots'].some((p) =>
+      const inSuspense = ['slots'].some((p) =>
         pathRef.current.includes(p),
       )
       const delay = isUserGame && inSuspense ? 3000 : 1
