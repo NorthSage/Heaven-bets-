@@ -34,26 +34,9 @@ const WelcomeContent = styled.div`
   flex-direction: column;
   align-items: center;
 
-  h1 {
-    font-size: 1.75rem; /* Responsive font size */
-    margin: 0 0 8px 0;
-    color: #fff;
-    text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  h1 img {
+  img.rocket {
     height: 9em;
-  }
-
-  p {
-    font-size: 1rem;
-    color: #fff;
-    text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
-    margin: 0;
+    margin-bottom: 8px;
   }
 
   .proverb {
@@ -61,14 +44,12 @@ const WelcomeContent = styled.div`
     font-style: italic;
     color: #ffd700;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    font-size: 1.25rem;
   }
 
   @media (min-width: 800px) {
-    h1 {
-      font-size: 2.25rem;
-    }
-    p {
-      font-size: 1.125rem;
+    .proverb {
+      font-size: 1.5rem;
     }
   }
 `;
@@ -77,13 +58,9 @@ const WelcomeContent = styled.div`
 export function WelcomeBanner() {
   return (
     <WelcomeWrapper>
-        <WelcomeContent>
-          <img src="/logo.svg" alt="HALO BETS logo" style={{ height: '120px', marginBottom: '16px' }} />
-            <h1>
-              Welcome to HALO BETS
-              <img src={rocketGif} alt="rocket" />
-            </h1>
-            <p>The halo home of decentralized play on Solana.</p>
+      <WelcomeContent>
+        <img src="/logo.svg" alt="HALO BETS logo" style={{ height: '120px', marginBottom: '16px' }} />
+        <img src={rocketGif} alt="rocket" className="rocket" />
         <p className="proverb">
           Proverbs 16:33: "The lot is cast into the lap, but its every decision is from the Lord".
         </p>
