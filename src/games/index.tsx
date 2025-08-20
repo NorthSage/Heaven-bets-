@@ -47,19 +47,6 @@ export const GAMES: ExtendedGameBundle[] = [
     app: React.lazy(() => import('./Flip')),
   },
   {
-    id: 'hilo',
-    meta: {
-      background: '#ff4f4f',
-      name: 'HiLo',
-      image: '/games/hilo.png',
-      description: `
-        HiLo is a game of foresight and luck, challenging players to guess whether the next card will be higher or lower. Make consecutive correct guesses to increase your winnings, and decide when to cash out for maximum rewards.
-      `,
-    },
-    props: { logo: '/logo.svg' },
-    app: React.lazy(() => import('./HiLo')),
-  },
-  {
     id: 'mines',
     meta: {
       background: '#8376ff',
@@ -70,30 +57,6 @@ export const GAMES: ExtendedGameBundle[] = [
       `,
     },
     app: React.lazy(() => import('./Mines')),
-  },
-  {
-    id: 'roulette',
-    meta: {
-      background: '#1de87e',
-      name: 'Roulette',
-      image: '/games/roulette.png',
-      description: `
-        Roulette brings the classic wheel-spinning game to life with a digital twist. Bet on where the ball will land and watch as the wheel decides your fate. With straightforward rules and the chance for big wins, Roulette is a timeless game of chance.
-      `,
-    },
-    app: React.lazy(() => import('./Roulette')),
-  },
-  {
-    id: 'plinko',
-    meta: {
-      background: '#7272ff',
-      name: 'Plinko',
-      image: '/games/plinko.png',
-      description: `
-        Plinko is played by dropping chips down a pegged board where they randomly fall into slots with varying win amounts.
-      `,
-    },
-    app: React.lazy(() => import('./Plinko')),
   },
   {
     id: 'crash',
@@ -118,31 +81,5 @@ export const GAMES: ExtendedGameBundle[] = [
       `,
     },
     app: React.lazy(() => import('./BlackJack')),
-  },
-  {
-    id: 'jackpot',
-    meta: {
-      background: '#38acc9ff',
-      name: 'JackPot',
-      image: '/games/jackpot.png',
-      description: `
-        A simple jackpot multiplier game where you spin to win big.
-      `,
-      tag: 'Multiplayer',  
-    },
-    app: React.lazy(() => import('./Jackpot')),
-  },
-  {
-    id: 'plinkorace',
-    meta: {
-      background: '#62cc34ff',
-      name: 'PlinkoRace',
-      image: '/games/plinkorace.png',
-      description: `
-        multiplayer plinko game 
-      `,
-      tag: 'Multiplayer', 
-    },
-    app: React.lazy(() => import('./PlinkoRace')),
   },
 ];
