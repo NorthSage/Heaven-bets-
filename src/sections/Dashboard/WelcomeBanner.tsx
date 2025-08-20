@@ -35,22 +35,33 @@ const WelcomeContent = styled.div`
   flex-direction: column;
   align-items: center;
 
-  img.rocket {
-    height: 9em;
-    margin-bottom: 8px;
+  .logo-orbit {
+    position: relative;
+    height: 160px;
+    margin-bottom: 16px;
   }
 
-  .proverb {
-    margin-top: 12px;
-    font-style: italic;
-    color: #ffd700;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
-    font-size: 1.25rem;
+  .rocket-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    animation: rocket-spin 6s linear infinite;
   }
 
-  @media (min-width: 800px) {
-    .proverb {
-      font-size: 1.5rem;
+  .rocket {
+    width: 50px;
+    height: auto;
+    transform: translateX(80px);
+  }
+
+  @keyframes rocket-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
     }
   }
 `;
@@ -60,7 +71,7 @@ export function WelcomeBanner() {
   return (
     <WelcomeWrapper>
       <WelcomeContent>
-        <div style={{ position: 'relative', height: '160px', marginBottom: '16px' }}>
+        <div className="logo-orbit">
           <img
             src="/01_Heaven_Logo_Reveal_014_Black_600px.gif"
             alt="halo"
@@ -71,11 +82,10 @@ export function WelcomeBanner() {
             alt="777BET logo"
             style={{ height: '100%', filter: 'drop-shadow(0 0 4px #ffd700) drop-shadow(0 0 10px rgba(255, 215, 0, 0.8))' }}
           />
+          <div className="rocket-orbit">
+            <img src={rocketGif} alt="rocket" className="rocket" />
+          </div>
         </div>
-        <img src={rocketGif} alt="rocket" className="rocket" />
-        <p className="proverb">
-          Proverbs 16:33: "The lot is cast into the lap, but its every decision is from the Lord".
-        </p>
       </WelcomeContent>
     </WelcomeWrapper>
   );
