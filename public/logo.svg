@@ -1,4 +1,38 @@
 <svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-  <ellipse cx="100" cy="20" rx="60" ry="15" fill="none" stroke="#ffd700" stroke-width="4" />
-  <text x="100" y="60" text-anchor="middle" font-size="32" font-family="serif" fill="#1a237e">HALO BETS</text>
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff8e1" />
+      <stop offset="50%" stop-color="#ffd700" />
+      <stop offset="100%" stop-color="#ffb300" />
+    </linearGradient>
+    <filter id="goldGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <text
+    x="100"
+    y="55"
+    text-anchor="middle"
+    font-size="46"
+    font-family="'Comic Sans MS', 'Comic Sans', cursive"
+    font-weight="bold"
+    fill="url(#goldGradient)"
+    filter="url(#goldGlow)"
+  >777BET</text>
+  <text
+    x="100"
+    y="55"
+    text-anchor="middle"
+    font-size="46"
+    font-family="'Comic Sans MS', 'Comic Sans', cursive"
+    font-weight="bold"
+    fill="url(#goldGradient)"
+    stroke="#8b5a00"
+    stroke-width="3"
+    stroke-linejoin="round"
+  >777BET</text>
 </svg>
