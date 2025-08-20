@@ -118,7 +118,7 @@ export default function Header() {
       <StyledHeader>
         <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
             <Logo to="/">
-              <img alt="HOLY BETS logo" src="/logo.svg" />
+                <img alt="HALO BETS logo" src="/logo.svg" />
             </Logo>
         </div>
 

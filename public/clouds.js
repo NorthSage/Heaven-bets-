@@ -1,4 +1,4 @@
-// Dynamic cloud generation for holy background
+// Dynamic cloud generation for halo background
 window.addEventListener('DOMContentLoaded', () => {
   const sky = document.querySelector('.sky');
   const template = document.getElementById('cloud');
