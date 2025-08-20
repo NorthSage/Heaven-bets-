@@ -47,18 +47,6 @@ export const GAMES: ExtendedGameBundle[] = [
     app: React.lazy(() => import('./Flip')),
   },
   {
-    id: 'mines',
-    meta: {
-      background: '#8376ff',
-      name: 'Mines',
-      image: '/games/mines.png',
-      description: `
-        There's money hidden beneath the squares. The reward will increase the more squares you reveal, but watch out for the 5 hidden mines. Touch one and you'll go broke. You can cash out at any time.
-      `,
-    },
-    app: React.lazy(() => import('./Mines')),
-  },
-  {
     id: 'crash',
     meta: {
       background: '#de95e8',
@@ -69,17 +57,5 @@ export const GAMES: ExtendedGameBundle[] = [
       `,
     },
     app: React.lazy(() => import('./CrashGame')),
-  },
-  {
-    id: 'blackjack',
-    meta: {
-      background: '#084700',
-      name: 'BlackJack',
-      image: '/games/blackjack.png',
-      description: `
-        A simplified blackjack game where you and the dealer each get two cards. Win 2.5x your wager with a blackjack (21 with two cards), or 2x if your total beats the dealer's without exceeding 21. Ties or lower totals result in a loss. Enjoy quick gameplay without the usual complexities.
-      `,
-    },
-    app: React.lazy(() => import('./BlackJack')),
   },
 ];
