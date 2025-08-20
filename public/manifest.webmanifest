@@ -1,13 +1,13 @@
 {
-        "name": "HALO BETS",
-        "short_name": "HALO BETS",
+        "name": "777BET",
+        "short_name": "777BET",
 	"start_url": "/",
 	"display": "standalone",
         "background_color": "#87ceeb",
 	"lang": "en",
 	"scope": "/",
         "theme_color": "#87ceeb",
-        "description": "Halo bets and games",
+        "description": "777BET and games",
 	"icons": [
 		{
 			"src": "/icon-512.png",
