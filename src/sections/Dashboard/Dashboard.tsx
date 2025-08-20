@@ -52,7 +52,7 @@ export default function Dashboard() {
     <>
       <WelcomeBanner />
       <FeaturedInlineGame />
-        <h2 style={{ textAlign: 'center' }}>Holy Games</h2>
+        <h2 style={{ textAlign: 'center' }}>Halo Games</h2>
       <GameGrid />
     </>
   )

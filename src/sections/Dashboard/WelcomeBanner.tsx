@@ -82,12 +82,12 @@ export function WelcomeBanner() {
   return (
     <WelcomeWrapper>
         <WelcomeContent>
-          <img src="/logo.svg" alt="HOLY BETS logo" style={{ height: '80px', marginBottom: '8px' }} />
-          <h1>
-            Welcome to HOLY BETS
-            <img src={rocketGif} alt="rocket" />
-          </h1>
-          <p>The holy home of decentralized play on Solana.</p>
+          <img src="/logo.svg" alt="HALO BETS logo" style={{ height: '80px', marginBottom: '8px' }} />
+            <h1>
+              Welcome to HALO BETS
+              <img src={rocketGif} alt="rocket" />
+            </h1>
+            <p>The halo home of decentralized play on Solana.</p>
         <p className="proverb">
           Proverbs 16:33: "The lot is cast into the lap, but its every decision is from the Lord".
         </p>

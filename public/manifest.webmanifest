@@ -1,13 +1,13 @@
 {
-        "name": "HOLY BETS",
-        "short_name": "HOLY BETS",
+        "name": "HALO BETS",
+        "short_name": "HALO BETS",
 	"start_url": "/",
 	"display": "standalone",
         "background_color": "#87ceeb",
 	"lang": "en",
 	"scope": "/",
         "theme_color": "#87ceeb",
-        "description": "Holy bets and games",
+        "description": "Halo bets and games",
 	"icons": [
 		{
 			"src": "/icon-512.png",
