@@ -66,59 +66,14 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
 
-  /* Halo sky background */
-.cloud-container {
+.background-video {
   position: fixed;
   top: 0;
   left: 0;
-  width: 110vw;
+  width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  object-fit: cover;
   z-index: 0;
-}
-
-.sky {
-  background-image: url('https://i.imgur.com/HRKpV6s.png');
-  background-size: cover;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.cloud {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.cloud-part {
-  background: #fff;
-  box-shadow: 0 0 60px rgba(0, 0, 0, 0.2);
-}
-
-#cloud-back {
-  filter: url(#filter-back);
-  box-shadow: 300px 300px 30px -20px #fff;
-}
-
-#cloud-mid {
-  filter: url(#filter-mid);
-  box-shadow: 300px 340px 70px -60px rgba(158, 168, 179, 0.3);
-}
-
-#cloud-front {
-  filter: url(#filter-front);
-  box-shadow: 300px 370px 60px -100px rgba(0, 0, 0, 0.2);
-}
-
-@keyframes animateCloud {
-  0% {
-    transform: translateX(-100vw);
-  }
-  100% {
-    transform: translateX(200vw);
-  }
 }
 
 #root {
