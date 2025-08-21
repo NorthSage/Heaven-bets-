@@ -18,6 +18,7 @@ Simply fork the repository, provide your own Solana address, and begin collectin
 
 * Bonuses
 
+* FREEPLAY and SOL pools with a 5% creator fee sent to 44tiD4MTwg9oymhn3Pu51gTjr7c7Bd6xQKACFquzFrHt
 ## Quick Setup
 
 1. [Fork this repository](https://github.com/gamba-labs/platform/generate).
