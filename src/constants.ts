@@ -1,8 +1,18 @@
 import { PublicKey } from '@solana/web3.js'
 import { FAKE_TOKEN_MINT, PoolToken, TokenMeta, makeHeliusTokenFetcher } from 'gamba-react-ui-v2'
 
-// Get RPC from the .env file or default to the public RPC.
-export const RPC_ENDPOINT = import.meta.env.VITE_RPC_ENDPOINT ?? 'https://api.mainnet-beta.solana.com'
+// Get RPC from the .env file or infer it from the Helius API key
+export const RPC_ENDPOINT = (() => {
+  const explicit = import.meta.env.VITE_RPC_ENDPOINT
+  if (explicit) {
+    return explicit
+  }
+  const heliusKey = import.meta.env.VITE_HELIUS_API_KEY
+  if (heliusKey) {
+    return `https://rpc.helius.xyz/?api-key=${heliusKey}`
+  }
+  return 'https://api.mainnet-beta.solana.com'
+})()
 
 // Solana address that will receive fees when somebody plays on this platform
 export const PLATFORM_CREATOR_ADDRESS = new PublicKey(
