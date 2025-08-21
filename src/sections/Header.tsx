@@ -34,7 +34,7 @@ const StyledHeader = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 10px;
+  padding: calc(10px * 1.15);
   background: #ffffffcc;
   backdrop-filter: blur(20px);
   position: fixed;
@@ -45,7 +45,7 @@ const StyledHeader = styled.div`
 
 const Logo = styled(NavLink)`
   position: relative;
-  height: 40px;
+  height: calc(40px * 1.15);
   margin: 0 15px;
   display: flex;
   align-items: center;

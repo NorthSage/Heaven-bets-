@@ -12,7 +12,7 @@ import FeaturedInlineGame from './FeaturedInlineGame'
 export function GameSlider() {
   return (
     <SlideSection>
-      {GAMES.map((game) => (
+      {GAMES.filter((game) => game.id !== 'dice').map((game) => (
         <div key={game.id} style={{ width: '160px', display: 'flex' }}>
           <GameCard game={game} />
         </div>
@@ -24,22 +24,14 @@ export function GameSlider() {
 const Grid = styled.div`
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  @media (min-width: 600px) {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-  @media (min-width: 800px) {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  @media (min-width: 1200px) {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  justify-content: center;
 `
 
 export function GameGrid() {
   return (
     <Grid>
-      {GAMES.map((game) => (
+      {GAMES.filter((game) => game.id !== 'dice').map((game) => (
         <GameCard key={game.id} game={game} />
       ))}
     </Grid>
