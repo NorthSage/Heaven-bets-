@@ -50,7 +50,7 @@ function TokenSelectItem({ mint }: {mint: PublicKey}) {
   const balance = useTokenBalance(mint)
   return (
     <>
-      <TokenImage mint={mint} /> <TokenValue mint={mint} amount={balance.balance} />
+      <TokenImage mint={mint} /> <TokenValue mint={mint} amount={Number(balance.balance)} />
     </>
   )
 }
@@ -129,7 +129,7 @@ export default function TokenSelect() {
           {selectedToken && (
             <StyledToken>
               <TokenImage mint={selectedToken.mint} />
-              <TokenValue amount={balance.balance} />
+              <TokenValue amount={Number(balance.balance)} />
             </StyledToken>
           )}
         </GambaUi.Button>
