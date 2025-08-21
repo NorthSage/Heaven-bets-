@@ -48,7 +48,7 @@ const StyledHeader = styled.div`
 
 const Logo = styled(NavLink)`
   position: relative;
-  height: 45px;
+  height: 40px;
   margin: 0 15px;
   display: flex;
   align-items: center;
@@ -163,7 +163,13 @@ export default function Header() {
               Leaderboard
             </GambaUi.Button>
           )}
-
+          <a
+            href="https://x.com/777BET_"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/x.svg" alt="X" style={{ height: '24px' }} />
+          </a>
           <TokenSelect />
           <UserButton />
         </div>
