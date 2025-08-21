@@ -131,10 +131,10 @@ export default function Header() {
 
       <StyledHeader>
         <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-            <Logo to="/">
-                <img className="halo" alt="halo" src="/01_Heaven_Logo_Reveal_014_Black_600px.gif" />
-                <img className="text" alt="777BET logo" src="/logo.svg" />
-            </Logo>
+          <Logo to="/">
+            <img className="halo" alt="halo" src="/01_Heaven_Logo_Reveal_014_Black_600px.gif" />
+            <img className="text" alt="777BET logo" src="/logo.svg" />
+          </Logo>
         </div>
 
         <div
