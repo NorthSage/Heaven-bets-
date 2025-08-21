@@ -4,8 +4,9 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Dropdown } from '../components/Dropdown'
 import { Modal } from '../components/Modal'
-import { POOLS } from '../constants'
+import { POOLS, SOL_MINT } from '../constants'
 import { useUserStore } from '../hooks/useUserStore'
+import { useSolBalance } from '../hooks/useSolBalance'
 
 const StyledToken = styled.div`
   display: flex;
@@ -47,7 +48,9 @@ function TokenImage({ mint, ...props }: {mint: PublicKey}) {
 }
 
 function TokenSelectItem({ mint }: {mint: PublicKey}) {
-  const balance = useTokenBalance(mint)
+  const tokenBalance = useTokenBalance(mint)
+  const solBalance = useSolBalance()
+  const balance = mint.equals(SOL_MINT) ? solBalance : tokenBalance
   return (
     <>
       <TokenImage mint={mint} /> <TokenValue mint={mint} amount={balance.balance} />
@@ -63,7 +66,9 @@ export default function TokenSelect() {
   const context = React.useContext(GambaPlatformContext)
   const selectedToken = useCurrentToken()
   const userStore = useUserStore()
-  const balance = useTokenBalance()
+  const tokenBalance = useTokenBalance()
+  const solBalance = useSolBalance()
+  const balance = selectedToken?.mint.equals(SOL_MINT) ? solBalance : tokenBalance
 
   // Update the platform context with the last selected token from localStorage
   useEffect(() => {

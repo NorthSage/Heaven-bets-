@@ -35,6 +35,8 @@ const lp = (tokenMint: PublicKey | string, poolAuthority?: PublicKey | string): 
   authority: poolAuthority !== undefined ? new PublicKey(poolAuthority) : undefined,
 })
 
+export const SOL_MINT = new PublicKey('So11111111111111111111111111111111111111112')
+
 /**
  * List of pools supported by this platform
  * Make sure the token you want to list has a corresponding pool on https://explorer.gamba.so/pools
@@ -44,7 +46,7 @@ export const POOLS = [
   // Freeplay token:
   lp(FREEPLAY_TOKEN_MINT),
   // SOL:
-  lp('So11111111111111111111111111111111111111112'),
+  lp(SOL_MINT),
 ]
 
 // The default token to be selected
@@ -63,6 +65,14 @@ export const TOKEN_METADATA: (Partial<TokenMeta> & {mint: PublicKey})[] = [
     baseWager: 1e9,
     decimals: 9,
     usdPrice: 0,
+  },
+  {
+    mint: SOL_MINT,
+    name: 'Solana',
+    symbol: 'SOL',
+    image: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/solana/info/logo.png',
+    baseWager: 1e9,
+    decimals: 9,
   },
 ]
 
