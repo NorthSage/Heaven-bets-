@@ -10,12 +10,9 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { Modal } from '../components/Modal'
-import LeaderboardsModal from '../sections/LeaderBoard/LeaderboardsModal'
-import { PLATFORM_JACKPOT_FEE, PLATFORM_CREATOR_ADDRESS } from '../constants'
-import { useMediaQuery } from '../hooks/useMediaQuery'
+import { PLATFORM_JACKPOT_FEE } from '../constants'
 import TokenSelect from './TokenSelect'
 import { UserButton } from './UserButton'
-import { ENABLE_LEADERBOARD } from '../constants'
 
 const Bonus = styled.button`
   all: unset;
@@ -72,8 +69,6 @@ export default function Header() {
   const pool = useCurrentPool()
   const context = useGambaPlatformContext()
   const balance = useUserBalance()
-  const isDesktop = useMediaQuery('lg') 
-  const [showLeaderboard, setShowLeaderboard] = React.useState(false)
   const [bonusHelp, setBonusHelp] = React.useState(false)
   const [jackpotHelp, setJackpotHelp] = React.useState(false)
 
@@ -122,13 +117,6 @@ export default function Header() {
         </Modal>
       )}
 
-      {ENABLE_LEADERBOARD && showLeaderboard && (
-        <LeaderboardsModal
-          creator={PLATFORM_CREATOR_ADDRESS.toBase58()}
-          onClose={() => setShowLeaderboard(false)}
-        />
-      )}
-
       <StyledHeader>
         <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
           <Logo to="/">
@@ -157,12 +145,6 @@ export default function Header() {
             </Bonus>
           )}
 
-          {/* Leaderboard shows only on desktop */}
-          {isDesktop && (
-            <GambaUi.Button onClick={() => setShowLeaderboard(true)}>
-              Leaderboard
-            </GambaUi.Button>
-          )}
           <a
             href="https://x.com/777BET_"
             target="_blank"

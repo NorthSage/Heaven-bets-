@@ -41,7 +41,7 @@ export const GAMES: ExtendedGameBundle[] = [
       name: 'Flip',
       image: '/games/flip.png',
       description: `
-        Flip offers a straightforward yet thrilling gamble: choose Heads or Tails and double your money or lose it all. This simple, high-stakes game tests your luck and decision-making with every flip of the coin.
+        Flip offers a straightforward yet thrilling gamble: choose Demon or Angel and double your money or lose it all. This simple, high-stakes game tests your luck and decision-making with every flip of the coin.
       `,
     },
     app: React.lazy(() => import('./Flip')),
