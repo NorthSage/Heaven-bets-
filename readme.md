@@ -36,6 +36,8 @@ Configure these variables on your host to enable real plays:
 | `VITE_RPC_ENDPOINT` | Custom Solana RPC endpoint |
 | `VITE_HELIUS_API_KEY` | When set, a Helius RPC URL is used automatically |
 
+> **Note:** If neither `VITE_RPC_ENDPOINT` nor `VITE_HELIUS_API_KEY` is provided, the app falls back to the public Solana RPC, which is heavily rate limited and may return zero balances. Configure one of the variables above for reliable mainnet access.
+
 ## More
 
 [Discord](https://discord.com/invite/xjBsW3e8fK)
