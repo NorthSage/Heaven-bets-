@@ -27,7 +27,7 @@ export const GAMES: ExtendedGameBundle[] = [
     meta: {
       background: '#5465ff',
       name: 'Slots',
-      image: '/games/slots.png',
+      image: '/games/slots.gif',
       description: `
         Slots is the quintessential game of luck and anticipation. Spin the reels and match symbols to win, with potential rewards displayed upfront. A fair and exciting game, Slots offers a classic casino experience tailored for digital enjoyment.
       `,
