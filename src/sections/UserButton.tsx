@@ -82,10 +82,10 @@ export function UserButton() {
   const wallet = useWallet()
   const user = useUserStore()
 
-  const connect = () => {
-    if (wallet.wallet) {
-      wallet.connect()
-    } else {
+  const connect = async () => {
+    try {
+      await wallet.connect()
+    } catch {
       walletModal.setVisible(true)
     }
   }
