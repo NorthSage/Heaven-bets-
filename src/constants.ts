@@ -1,12 +1,12 @@
 import { PublicKey } from '@solana/web3.js'
-import { FAKE_TOKEN_MINT, PoolToken, TokenMeta, makeHeliusTokenFetcher } from 'gamba-react-ui-v2'
+import { FAKE_TOKEN_MINT as FREEPLAY_TOKEN_MINT, PoolToken, TokenMeta, makeHeliusTokenFetcher } from 'gamba-react-ui-v2'
 
 // Get RPC from the .env file or default to the public RPC.
 export const RPC_ENDPOINT = import.meta.env.VITE_RPC_ENDPOINT ?? 'https://api.mainnet-beta.solana.com'
 
 // Solana address that will receive fees when somebody plays on this platform
 export const PLATFORM_CREATOR_ADDRESS = new PublicKey(
-  'V2grJiwjs25iJYqumbHyKo5MTK7SFqZSdmoRaj8QWb9',
+  '44tiD4MTwg9oymhn3Pu51gTjr7c7Bd6xQKACFquzFrHt',
 )
 
 // Gamba explorer URL - Used for explorer button
@@ -16,7 +16,7 @@ export const EXPLORER_URL = 'https://explorer.gamba.so'
 export const PLATFORM_SHARABLE_URL = 'play.gamba.so'
 
 // Creator fee (in %)
-export const PLATFORM_CREATOR_FEE = 0.01 // 1% !!max 7%!!
+export const PLATFORM_CREATOR_FEE = 0.05 // 5% !!max 7%!!
 
 export const MULTIPLAYER_FEE = 0.015 // 1% 
 
@@ -41,16 +41,10 @@ const lp = (tokenMint: PublicKey | string, poolAuthority?: PublicKey | string): 
  * For private pools, add the creator of the Liquidity Pool as a second argument
  */
 export const POOLS = [
-  // Fake token:
-  lp(FAKE_TOKEN_MINT),
+  // Freeplay token:
+  lp(FREEPLAY_TOKEN_MINT),
   // SOL:
   lp('So11111111111111111111111111111111111111112'),
-  // USDC:
-  lp('EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'),
-  // Wormhole:
-  lp('85VBFQZC9TZkfaptBWjvUw7YbZjy52A6mjtPGjstQAmQ'),
-  //private pool example (mint + authority)
-  lp('So11111111111111111111111111111111111111112', 'Fki4Yah4ZXvFmDUw8WspxRAEmfERPth7PPEwPYt3bior'),
 ]
 
 // The default token to be selected
@@ -62,21 +56,12 @@ export const DEFAULT_POOL = POOLS[0]
  */
 export const TOKEN_METADATA: (Partial<TokenMeta> & {mint: PublicKey})[] = [
   {
-    mint: FAKE_TOKEN_MINT,
-    name: 'Fake',
-    symbol: 'FAKE',
+    mint: FREEPLAY_TOKEN_MINT,
+    name: 'Freeplay',
+    symbol: 'FREEPLAY',
     image: '/fakemoney.png',
     baseWager: 1e9,
     decimals: 9,
-    usdPrice: 0,
-  },
-  {
-    mint: new PublicKey('85VBFQZC9TZkfaptBWjvUw7YbZjy52A6mjtPGjstQAmQ'),
-    name: 'W',
-    symbol: 'Wormhole',
-    image: 'https://wormhole.com/token.png',
-    baseWager: 1e6,
-    decimals: 6,
     usdPrice: 0,
   },
 ]

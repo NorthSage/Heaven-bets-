@@ -1,5 +1,5 @@
 import { PublicKey } from '@solana/web3.js'
-import { FAKE_TOKEN_MINT, GambaPlatformContext, GambaUi, PoolToken, TokenValue, useCurrentToken, useTokenBalance, useTokenMeta } from 'gamba-react-ui-v2'
+import { FAKE_TOKEN_MINT as FREEPLAY_TOKEN_MINT, GambaPlatformContext, GambaUi, PoolToken, TokenValue, useCurrentToken, useTokenBalance, useTokenMeta } from 'gamba-react-ui-v2'
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Dropdown } from '../components/Dropdown'
@@ -90,7 +90,7 @@ export default function TokenSelect() {
     setVisible(false)
     // Check if platform has real plays disabled
     const realDisabled = Boolean(import.meta.env.VITE_REAL_PLAYS_DISABLED) && !allowRealPlays
-    if (realDisabled && !pool.token.equals(FAKE_TOKEN_MINT)) {
+    if (realDisabled && !pool.token.equals(FREEPLAY_TOKEN_MINT)) {
       setWarning(true)
       return
     }
@@ -114,7 +114,7 @@ export default function TokenSelect() {
         <Modal>
           <h1>Real plays disabled</h1>
           <p>
-            This platform only allows you to play with fake tokens.
+            This platform only allows you to play with FREEPLAY tokens.
           </p>
           <GambaUi.Button
             main
