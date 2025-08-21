@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { GambaUi } from 'gamba-react-ui-v2'
-import { EXPLORER_URL } from '../constants'
 
 const Section = styled.section`
   max-width: 900px;
@@ -38,6 +36,7 @@ const Table = styled.table`
 export default function Tokenomics() {
   return (
     <Section>
+      <img src="/flywheel.gif" alt="Flywheel" style={{ display: 'block', margin: '0 auto 20px', maxWidth: '100%' }} />
       <Title>777Bet Tokenomics — Powered by Heaven’s Flywheel</Title>
       <p>
         Leveraging Heaven’s builder-centric flywheel mechanism, 777Bet transforms gaming fees into automatic buybacks and burns, creating a self-reinforcing cycle of value growth and scarcity.
@@ -85,9 +84,6 @@ export default function Tokenomics() {
         </tbody>
       </Table>
 
-      <div style={{ textAlign: 'center', marginTop: '30px' }}>
-        <GambaUi.Button main onClick={() => window.open(EXPLORER_URL, '_blank')}>Open Explorer</GambaUi.Button>
-      </div>
     </Section>
   )
 }
