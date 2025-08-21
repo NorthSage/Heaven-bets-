@@ -47,15 +47,16 @@ function TokenImage({ mint, ...props }: {mint: PublicKey}) {
 }
 
 function TokenSelectItem({ mint }: {mint: PublicKey}) {
-  const balance = useTokenBalance(mint)
+  const balance = useTokenBalance(mint) ?? { balance: 0n }
+  const amount = balance?.balance ?? 0n
   return (
     <>
-      <TokenImage mint={mint} /> <TokenValue mint={mint} amount={balance.balance} />
+      <TokenImage mint={mint} /> <TokenValue mint={mint} amount={amount} />
     </>
   )
 }
 
-export default function TokenSelect() {
+function TokenSelectContent() {
   const [visible, setVisible] = React.useState(false)
   const [warning, setWarning] = React.useState(false)
   // Allow real plays override via query param/localStorage for deployed testing
@@ -63,7 +64,8 @@ export default function TokenSelect() {
   const context = React.useContext(GambaPlatformContext)
   const selectedToken = useCurrentToken()
   const userStore = useUserStore()
-  const balance = useTokenBalance()
+  const balanceResult = useTokenBalance() ?? { balance: 0n }
+  const amount = balanceResult?.balance ?? 0n
 
   // Update the platform context with the last selected token from localStorage
   useEffect(() => {
@@ -129,7 +131,7 @@ export default function TokenSelect() {
           {selectedToken && (
             <StyledToken>
               <TokenImage mint={selectedToken.mint} />
-              <TokenValue amount={balance.balance} />
+              <TokenValue amount={amount} />
             </StyledToken>
           )}
         </GambaUi.Button>
@@ -143,5 +145,35 @@ export default function TokenSelect() {
         </Dropdown>
       </div>
     </>
+  )
+}
+
+class TokenSelectErrorBoundary extends React.Component<{children: React.ReactNode}, {hasError: boolean}> {
+  constructor(props: {children: React.ReactNode}) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true }
+  }
+
+  componentDidCatch(error: unknown, info: React.ErrorInfo) {
+    console.error('TokenSelect error', error, info)
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <div>Something went wrong.</div>
+    }
+    return this.props.children
+  }
+}
+
+export default function TokenSelect() {
+  return (
+    <TokenSelectErrorBoundary>
+      <TokenSelectContent />
+    </TokenSelectErrorBoundary>
   )
 }
