@@ -12,7 +12,7 @@ import { useUserStore } from './hooks/useUserStore'
 import Dashboard from './sections/Dashboard/Dashboard'
 import Game from './sections/Game/Game'
 import Header from './sections/Header'
-import RecentPlays from './sections/RecentPlays/RecentPlays'
+import Tokenomics from './sections/Tokenomics'
 import Toasts from './sections/Toasts'
 import TrollBox from './components/TrollBox'
 
@@ -85,8 +85,7 @@ export default function App() {
           <Route path="/:gameId"   element={<Game />} />
         </Routes>
 
-        <h2 style={{ textAlign: 'center' }}>Recent Plays</h2>
-        <RecentPlays />
+        <Tokenomics />
       </MainWrapper>
 
       {ENABLE_TROLLBOX && <TrollBox />}
