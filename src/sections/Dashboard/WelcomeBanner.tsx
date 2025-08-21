@@ -66,6 +66,12 @@ const WelcomeContent = styled.div`
   }
 `;
 
+const Tagline = styled.p`
+  max-width: 800px;
+  line-height: 1.4;
+  margin: 0;
+`;
+
 
 export function WelcomeBanner() {
   return (
@@ -86,6 +92,9 @@ export function WelcomeBanner() {
             <img src={rocketGif} alt="rocket" className="rocket" />
           </div>
         </div>
+        <Tagline>
+          777Bet is built on Heaven’s flywheel-powered launch infrastructure. Every game played—whether using SOL or the native 777Bet token—feeds our flywheel: SOL fees are used to buy and burn 777Bet tokens, while native token fees are burned directly. This creates a powerful, self-reinforcing cycle of scarcity and value growth—where gameplay fuels long-term token appreciation.
+        </Tagline>
       </WelcomeContent>
     </WelcomeWrapper>
   );

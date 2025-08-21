@@ -6,8 +6,11 @@ import { EXPLORER_URL } from '../constants'
 const Section = styled.section`
   max-width: 900px;
   margin: 40px auto;
-  padding: 0 20px;
+  padding: 20px;
   line-height: 1.6;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
 `
 
 const Title = styled.h2`

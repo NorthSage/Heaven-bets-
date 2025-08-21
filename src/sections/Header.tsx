@@ -46,14 +46,6 @@ const StyledHeader = styled.div`
   z-index: 1000;
 `
 
-const Tagline = styled.p`
-  flex: 1;
-  margin: 0 20px;
-  font-size: 14px;
-  line-height: 1.3;
-  text-align: center;
-`
-
 const Logo = styled(NavLink)`
   position: relative;
   height: 45px;
@@ -144,10 +136,6 @@ export default function Header() {
             <img className="text" alt="777BET logo" src="/logo.svg" />
           </Logo>
         </div>
-
-        <Tagline>
-          777Bet is built on Heaven’s flywheel-powered launch infrastructure. Every game played—whether using SOL or the native 777Bet token—feeds our flywheel: SOL fees are used to buy and burn 777Bet tokens, while native token fees are burned directly. This creates a powerful, self-reinforcing cycle of scarcity and value growth—where gameplay fuels long-term token appreciation.
-        </Tagline>
 
         <div
           style={{
