@@ -89,7 +89,8 @@ export default function TokenSelect() {
   const selectPool = (pool: PoolToken) => {
     setVisible(false)
     // Check if platform has real plays disabled
-    const realDisabled = Boolean(import.meta.env.VITE_REAL_PLAYS_DISABLED) && !allowRealPlays
+    const disabledFlag = (import.meta.env.VITE_REAL_PLAYS_DISABLED || '').toLowerCase()
+    const realDisabled = ['1', 'true'].includes(disabledFlag) && !allowRealPlays
     if (realDisabled && !pool.token.equals(FREEPLAY_TOKEN_MINT)) {
       setWarning(true)
       return
