@@ -26,6 +26,10 @@ Simply fork the repository, provide your own Solana address, and begin collectin
 
 3. Update the values in src/constants.ts
 
+## Real plays
+
+To show real balances instead of fake tokens, set `VITE_REAL_PLAYS_DISABLED=false` in your `.env`. See the [Gamba docs](https://gamba.so/docs) for full real-play setup details.
+
 ## More
 
 [Discord](https://discord.com/invite/xjBsW3e8fK)
