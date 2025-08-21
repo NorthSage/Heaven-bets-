@@ -1,11 +1,12 @@
 import { PublicKey } from '@solana/web3.js'
-import { FAKE_TOKEN_MINT, GambaPlatformContext, GambaUi, PoolToken, TokenValue, useCurrentToken, useTokenBalance, useTokenMeta } from 'gamba-react-ui-v2'
+import { FAKE_TOKEN_MINT as FREEPLAY_TOKEN_MINT, GambaPlatformContext, GambaUi, PoolToken, TokenValue, useCurrentToken, useTokenBalance, useTokenMeta } from 'gamba-react-ui-v2'
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Dropdown } from '../components/Dropdown'
 import { Modal } from '../components/Modal'
-import { POOLS } from '../constants'
+import { POOLS, SOL_MINT } from '../constants'
 import { useUserStore } from '../hooks/useUserStore'
+import { useSolBalance } from '../hooks/useSolBalance'
 
 const StyledToken = styled.div`
   display: flex;
@@ -47,7 +48,9 @@ function TokenImage({ mint, ...props }: {mint: PublicKey}) {
 }
 
 function TokenSelectItem({ mint }: {mint: PublicKey}) {
-  const balance = useTokenBalance(mint)
+  const tokenBalance = useTokenBalance(mint)
+  const solBalance = useSolBalance()
+  const balance = mint.equals(SOL_MINT) ? solBalance : tokenBalance
   return (
     <>
       <TokenImage mint={mint} /> <TokenValue mint={mint} amount={balance.balance} />
@@ -63,7 +66,9 @@ export default function TokenSelect() {
   const context = React.useContext(GambaPlatformContext)
   const selectedToken = useCurrentToken()
   const userStore = useUserStore()
-  const balance = useTokenBalance()
+  const tokenBalance = useTokenBalance()
+  const solBalance = useSolBalance()
+  const balance = selectedToken?.mint.equals(SOL_MINT) ? solBalance : tokenBalance
 
   // Update the platform context with the last selected token from localStorage
   useEffect(() => {
@@ -88,12 +93,13 @@ export default function TokenSelect() {
 
   const selectPool = (pool: PoolToken) => {
     setVisible(false)
-    // Check if platform has real plays disabled
-    const realDisabled = Boolean(import.meta.env.VITE_REAL_PLAYS_DISABLED) && !allowRealPlays
-    if (realDisabled && !pool.token.equals(FAKE_TOKEN_MINT)) {
-      setWarning(true)
-      return
-    }
+      // Check if platform has real plays disabled
+      const disabledFlag = (import.meta.env.VITE_REAL_PLAYS_DISABLED || '').toLowerCase()
+      const realDisabled = ['1', 'true'].includes(disabledFlag) && !allowRealPlays
+      if (realDisabled && !pool.token.equals(FREEPLAY_TOKEN_MINT)) {
+        setWarning(true)
+        return
+      }
     // Update selected pool
     context.setPool(pool.token, pool.authority)
     userStore.set({
@@ -111,18 +117,18 @@ export default function TokenSelect() {
   return (
     <>
       {warning && (
-        <Modal>
-          <h1>Real plays disabled</h1>
-          <p>
-            This platform only allows you to play with fake tokens.
-          </p>
-          <GambaUi.Button
-            main
-            onClick={() => setWarning(false)}
-          >
-            Okay
-          </GambaUi.Button>
-        </Modal>
+          <Modal>
+            <h1>Real plays disabled</h1>
+            <p>
+              This platform only allows you to play with FREEPLAY tokens.
+            </p>
+            <GambaUi.Button
+              main
+              onClick={() => setWarning(false)}
+            >
+              Okay
+            </GambaUi.Button>
+          </Modal>
       )}
       <div style={{ position: 'relative' }}>
         <GambaUi.Button onClick={click}>
