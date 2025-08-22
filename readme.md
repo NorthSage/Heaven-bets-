@@ -26,6 +26,18 @@ Simply fork the repository, provide your own Solana address, and begin collectin
 
 3. Update the values in src/constants.ts
 
+## Environment variables
+
+Configure these variables on your host to enable real plays:
+
+| Variable | Description |
+| --- | --- |
+| `VITE_REAL_PLAYS_DISABLED` | Set to `true` to force fake-token only mode |
+| `VITE_RPC_ENDPOINT` | Custom Solana RPC endpoint |
+| `VITE_HELIUS_API_KEY` | Helius API key or full RPC URL (e.g., `https://mainnet.helius-rpc.com/?api-key=...`) |
+
+> **Note:** If neither `VITE_RPC_ENDPOINT` nor `VITE_HELIUS_API_KEY` is provided, the app falls back to the public Solana RPC, which is heavily rate limited and may return zero balances. Configure one of the variables above for reliable mainnet access.
+
 ## More
 
 [Discord](https://discord.com/invite/xjBsW3e8fK)

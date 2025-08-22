@@ -48,9 +48,10 @@ function TokenImage({ mint, ...props }: {mint: PublicKey}) {
 
 function TokenSelectItem({ mint }: {mint: PublicKey}) {
   const balance = useTokenBalance(mint)
+  const amount = balance.balance + balance.nativeBalance
   return (
     <>
-      <TokenImage mint={mint} /> <TokenValue mint={mint} amount={balance.balance} />
+      <TokenImage mint={mint} /> <TokenValue mint={mint} amount={amount} />
     </>
   )
 }
@@ -89,7 +90,8 @@ export default function TokenSelect() {
   const selectPool = (pool: PoolToken) => {
     setVisible(false)
     // Check if platform has real plays disabled
-    const realDisabled = Boolean(import.meta.env.VITE_REAL_PLAYS_DISABLED) && !allowRealPlays
+    const realDisabledEnv = String(import.meta.env.VITE_REAL_PLAYS_DISABLED).toLowerCase()
+    const realDisabled = ['true', '1'].includes(realDisabledEnv) && !allowRealPlays
     if (realDisabled && !pool.token.equals(FAKE_TOKEN_MINT)) {
       setWarning(true)
       return
@@ -129,7 +131,7 @@ export default function TokenSelect() {
           {selectedToken && (
             <StyledToken>
               <TokenImage mint={selectedToken.mint} />
-              <TokenValue amount={balance.balance} />
+              <TokenValue amount={balance.balance + balance.nativeBalance} />
             </StyledToken>
           )}
         </GambaUi.Button>
