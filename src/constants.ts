@@ -1,18 +1,32 @@
 import { PublicKey } from '@solana/web3.js'
 import { FAKE_TOKEN_MINT, PoolToken, TokenMeta, makeHeliusTokenFetcher } from 'gamba-react-ui-v2'
 
-// Get RPC from the .env file or infer it from the Helius API key
-export const RPC_ENDPOINT = (() => {
-  const explicit = import.meta.env.VITE_RPC_ENDPOINT
-  if (explicit) {
-    return explicit
+// Infer Helius RPC and API key from environment variable
+const HELIUS = (() => {
+  const raw = import.meta.env.VITE_HELIUS_API_KEY
+  if (!raw) {
+    return {}
   }
-  const heliusKey = import.meta.env.VITE_HELIUS_API_KEY
-  if (heliusKey) {
-    return `https://rpc.helius.xyz/?api-key=${heliusKey}`
+  if (raw.startsWith('http')) {
+    try {
+      const url = new URL(raw)
+      return {
+        endpoint: raw,
+        apiKey: url.searchParams.get('api-key') || undefined,
+      }
+    } catch {
+      return { endpoint: raw }
+    }
   }
-  return 'https://api.mainnet-beta.solana.com'
+  return {
+    endpoint: `https://mainnet.helius-rpc.com/?api-key=${raw}`,
+    apiKey: raw,
+  }
 })()
+
+// Get RPC from the .env file or infer it from the Helius API key
+export const RPC_ENDPOINT =
+  import.meta.env.VITE_RPC_ENDPOINT || HELIUS.endpoint || 'https://api.mainnet-beta.solana.com'
 
 // Solana address that will receive fees when somebody plays on this platform
 export const PLATFORM_CREATOR_ADDRESS = new PublicKey(
@@ -110,9 +124,9 @@ export const TOS_HTML = `
  */
 export const TOKEN_METADATA_FETCHER = (
   () => {
-    if (import.meta.env.VITE_HELIUS_API_KEY) {
+    if (HELIUS.apiKey) {
       return makeHeliusTokenFetcher(
-        import.meta.env.VITE_HELIUS_API_KEY,
+        HELIUS.apiKey,
         { dollarBaseWager: 1 },
       )
     }
