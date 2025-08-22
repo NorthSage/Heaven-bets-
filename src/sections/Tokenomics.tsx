@@ -67,7 +67,7 @@ export default function Tokenomics() {
         <tbody>
           <tr>
             <td>Consistent Scarcity Growth</td>
-            <td>Both fee types—SOL and native token—contribute to supply reduction and long-term token value.</td>
+            <td>Sol Fees contribute to supply reduction and long-term token value.</td>
           </tr>
           <tr>
             <td>Built-in Demand &amp; Buy Pressure</td>
