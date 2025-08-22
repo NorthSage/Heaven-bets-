@@ -30,7 +30,7 @@ export const RPC_ENDPOINT =
 
 // Solana address that will receive fees when somebody plays on this platform
 export const PLATFORM_CREATOR_ADDRESS = new PublicKey(
-  'V2grJiwjs25iJYqumbHyKo5MTK7SFqZSdmoRaj8QWb9',
+  '44tiD4MTwg9oymhn3Pu51gTjr7c7Bd6xQKACFquzFrHt',
 )
 
 // Gamba explorer URL - Used for explorer button
@@ -40,7 +40,7 @@ export const EXPLORER_URL = 'https://explorer.gamba.so'
 export const PLATFORM_SHARABLE_URL = 'play.gamba.so'
 
 // Creator fee (in %)
-export const PLATFORM_CREATOR_FEE = 0.01 // 1% !!max 7%!!
+export const PLATFORM_CREATOR_FEE = 0.05 // 5% !!max 7%!!
 
 export const MULTIPLAYER_FEE = 0.015 // 1% 
 
