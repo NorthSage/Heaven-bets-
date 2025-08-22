@@ -34,7 +34,7 @@ const StyledHeader = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: calc(10px * 1.15);
+  padding: calc(10px * 1.15) calc(20px * 1.15);
   background: #ffffffcc;
   backdrop-filter: blur(20px);
   position: fixed;
@@ -45,7 +45,7 @@ const StyledHeader = styled.div`
 
 const Logo = styled(NavLink)`
   position: relative;
-  height: calc(40px * 1.15);
+  height: calc(32px * 1.15);
   margin: 0 15px;
   display: flex;
   align-items: center;
@@ -128,7 +128,7 @@ export default function Header() {
         <div
           style={{
             display: 'flex',
-            gap: '10px',
+            gap: '20px',
             alignItems: 'center',
             position: 'relative',
           }}

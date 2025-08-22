@@ -109,7 +109,7 @@ export const MultiplierText = styled.div`
 
 export const Rocket = styled.div`
   position: absolute;
-  width: 240px;
+  width: min(240px, 20vw);
   aspect-ratio: 1 / 1;
   background-image: url(${rocketAnimation});
   background-size: contain;
