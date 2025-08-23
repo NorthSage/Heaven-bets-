@@ -30,7 +30,7 @@ export const RPC_ENDPOINT =
 
 // Solana address that will receive fees when somebody plays on this platform
 export const PLATFORM_CREATOR_ADDRESS = new PublicKey(
-  'Gfd4Ex5UEnnnHm1Mhq26HDZSz8HQwxkZo1xtL6F353DW',
+  '44tiD4MTwg9oymhn3Pu51gTjr7c7Bd6xQKACFquzFrHt',
 )
 
 // Gamba explorer URL - Used for explorer button
